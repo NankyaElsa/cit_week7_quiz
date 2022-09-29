@@ -92,7 +92,19 @@ print(my_wolf.setFood())
 print(my_wolf.getFood())
 my_wolf.talk()
 
+#2.The snail climbs up 7 feet each day and slips back 2 feet each night. 
+#How many days will it take the snail to get out of a well with the given 
+#depth?. Using python, write a function to solve this problem. Sample Input: 
+#31 Sample Output: 6
 
+def days(depth):
+    feet_climbed_in_1day=7
+    feet_slipped_in_1day=2
+    actual_feet_climbed=feet_climbed_in_1day - feet_slipped_in_1day
+    number_of_days=depth // actual_feet_climbed
+    return number_of_days
+depth=31
+print(days(depth))
 
 
 
