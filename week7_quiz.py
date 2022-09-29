@@ -106,6 +106,13 @@ def days(depth):
 depth=31
 print(days(depth))
 
+#3.Write a function that takes a list of numbers and returns the 
+#largest number in the list.
+import numpy as np
+def max(list):
+    return np.max(list)
+list=[36, 14, 93, 183]
+print(max(list))
 
 
 
