@@ -108,13 +108,100 @@ print(days(depth))
 
 #3.Write a function that takes a list of numbers and returns the 
 #largest number in the list.
+
 import numpy as np
 def max(list):
     return np.max(list)
 list=[36, 14, 93, 183]
 print(max(list))
 
+#4.Write a program that accepts a sentence and calculate the number 
+#of upper case letters and lower case letters. Suppose the following 
+#input is supplied to the program: Hello world! Then, the output 
+#should be: UPPER CASE 1 LOWER CASE 9
+def calculate(sentence):
+    count_lower=0
+    count_upper=0
+    for i in sentence:
+        if (i.islower()):
+            count_lower += 1
+        elif(i.isupper()):
+            count_upper += 1
+    return ("UPPER CASE: {} LOWER CASE: {}".format(count_upper, count_lower) )
 
+sentence="Hello world"
+print(calculate(sentence))
 
+#5.Using Object Oriented Programming, write a program that implements 
+#a dice game. The game should have two players, and each player 
+#should have a name and a score. The game should have a method 
+#called play that takes two players as arguments and 
+#simulates the game. The game should be played as follows:
 
+# Each player rolls a die.
+# The player with the highest roll wins the round.
+# The winner gets one point added to their score.
+# The game ends when one player has 5 points.
+# The player with the most points at the end of the game wins.
+# The program should print out the winner's name and score.
+# If a player rolls a 6, they get an extra roll. If they roll a 6 
+# again, they get another extra roll. If they roll a 6 a third time, 
+# they get an extra roll, but their turn ends.
+import random
+
+class Player:
+    def __init__(self, name):
+        self.name=name
+
+class Game:
+    def __init__(self):
+        print("This is a dice game")
+    def play(player1, player2):
+        player1_score=0
+        player2_score=0
+        while player1_score < 5 and player2_score < 5:
+            player1_value=random.randint(1, 6)
+            player2_value=random.randint(1, 6)
+            print("player1 value is:{}".format(player1_value))
+            print("player2 value is:{}".format(player2_value))
+            if player1_value > player2_value:
+                player1_score +=1
+            elif player2_value > player1_value:
+                player2_score +=1
         
+            print("player1 score is:{}".format(player1_score))
+            print("player2 score is:{}".format(player2_score))
+
+            if player1_value or player2_value == 6:
+                chance = 1
+                while chance <= 3:
+                    if player1_value ==6:
+                        player1_value=random.randint(1, 6)
+                        print("p1secondvalue is:{}".format(player1_value))
+                        if player1_value > player2_value:
+                            player1_score +=1
+                            if player1_score == 5:
+                                break
+                        
+                    elif player2_value ==6:
+                        player2_value=random.randint(1, 6)
+                        print("p2secondvalue is:{}".format(player2_value))
+                        if player2_value > player1_value:
+                            player2_score +=1
+                            if player2_score == 5:
+                                break
+                    
+                    print("player1 finalscore is:{}".format(player1_score))
+                    print("player2 finalscore is:{}".format(player2_score))
+                    chance += 1
+            else:
+                print("none of the values is a 6")
+    
+        if player1_score > player2_score:
+            winner=player1
+            score=player1_score
+        elif player2_score > player1_score:
+            winner=player2
+            score=player2_score
+        print("The winner is:{} with a score of:{} points".format(winner, score))      
+Game.play("Elsa", "Arno")
