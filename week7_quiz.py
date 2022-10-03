@@ -205,3 +205,82 @@ class Game:
             score=player2_score
         print("The winner is:{} with a score of:{} points".format(winner, score))      
 Game.play("Elsa", "Arno")
+
+#6.Write a Python program that lists out all the default as well as 
+#custom properties of the class.
+
+#7.Write a Program in Python to implement a Stack Data Structure 
+#using Class and Objects, with push, pop, and traversal methods
+class Animal:
+    def __init__(self):
+        self.animal_names= []
+    def push(self, name):
+        return self.animal_names.append(name)
+    def isEmpty(self):
+        return len(self.animal_names) == 0
+    def pop(self):
+        if self.isEmpty():
+            return ("list is empty")
+        return self.animal_names.pop()
+    def peek(self):
+        return self.animal_names[-1]
+    def size(self):
+        return len(self.animal_names)
+    def show(self):
+        return self.animal_names
+my_animal_list=Animal()
+my_animal_list.push("cat")
+my_animal_list.push("dog")
+my_animal_list.push("horse")
+my_animal_list.push("cow")
+my_animal_list.push("goat")
+print(my_animal_list.show())
+print(my_animal_list.size())
+print(my_animal_list.pop())
+print(my_animal_list.peek())
+print(my_animal_list.isEmpty())
+print(my_animal_list.pop())
+print(my_animal_list.pop())
+print(my_animal_list.pop())
+print(my_animal_list.pop())
+print(my_animal_list.pop())
+
+#8.Using list comprehension, write a program that takes a list of numbers
+#and returns a list of the squares of the numbers.
+numbers=[1,2,3,4,5,6,7,8,9,10]
+sq_numbers=[i*i for i in numbers]
+print(sq_numbers)
+
+#9.Using only functions and lists, implement a queue data structure.
+#The queue should have the following methods: enqueue, dequeue, and size.
+#The queue should be "first-in-first-out"(FIFO).
+class Queue:
+    def __init__(self) -> None:
+        self.bank_queue=[]
+    def enqueue(self, number):
+        return self.bank_queue.insert(0,  number)
+    def isEmpty(self):
+        return len(self.bank_queue) == 0
+    def dequeue(self):
+        if self.isEmpty():
+            return("queue is empty")
+        return self.bank_queue.pop()
+    def show(self):
+        return self.bank_queue
+    def size(self):
+        return len(self.bank_queue)
+bank=Queue()
+bank.enqueue(1)
+bank.enqueue(2)
+bank.enqueue(3)
+bank.enqueue(4)
+print(bank.show())
+print(bank.dequeue())
+print(bank.show())
+print(bank.dequeue())
+print(bank.dequeue())
+print(bank.dequeue())
+print(bank.dequeue())
+bank.enqueue(10)
+bank.enqueue(50)
+print(bank.show())

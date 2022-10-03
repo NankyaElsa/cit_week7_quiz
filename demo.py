@@ -75,3 +75,11 @@
         #     player2_score += 1
     # print(player1_score)
     # print(player2_score)          
+
+# numbers=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# new_numbers=[]
+# for i in numbers:
+#     sq_number= i * i
+#     new_numbers.append(sq_number)
+# print(new_numbers)
+
